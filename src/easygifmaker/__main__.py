@@ -4,7 +4,3 @@
 
 def main():
     print("Hello from easygifmaker!")
-
-
-if __name__ == "__main__":
-    main()
