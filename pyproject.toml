@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 Dan Terry <dan@danielterry.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[project]
+name = "easygifmaker"
+version = "0.1.0"
+description = "Create animated GIFs from PNGs with transforms"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "pillow>=12.2.0",
+]
+
+[project.scripts]
+easygifmaker = "easygifmaker.app.main"
+
