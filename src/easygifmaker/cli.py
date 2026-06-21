@@ -15,16 +15,18 @@ def main() -> None:
     parser.add_argument("images", nargs="+", help="PNG files to combine")
     parser.add_argument("-o", "--output", default="out.gif", help="Output GIF path")
     parser.add_argument(
-        "-d",
-        "--duration",
-        type=int,
-        default=100,
-        help="Frame durationin ms"
+        "-p",
+        "--pattern",
+        type=str,
+        default="100",
+        help="Frame durration pattern in ms"
         )
     args = parser.parse_args()
+    
+    pattern = args.pattern.split(',')
 
     frames = load_images(args.images)
-    save_gif(frames, args.output, duration_ms=args.duration)
+    save_gif(frames, args.output, pattern=pattern)
     print(f"Saved {args.output}")
 
 

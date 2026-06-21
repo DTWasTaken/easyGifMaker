@@ -21,3 +21,6 @@ wheels/
 
 # Test output gif
 out.gif
+
+# Kate generated files
+.kateproject*
