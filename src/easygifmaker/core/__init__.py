@@ -5,6 +5,6 @@
 """Core image processing functions"""
 
 from .exporter import save_gif
-from .loader import load_image, load_images
+from .loader import load_frame, load_frames
 
-__all__ = ["load_image", "load_images", "save_gif"]
+__all__ = ["load_frame", "load_frames", "save_gif"]
