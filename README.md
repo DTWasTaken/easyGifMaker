@@ -6,12 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 # Milestones
 
-- input two pngs, output a gif of switching between them
-- additional transforms
-  - follow path
-  - resize
-  - rotation
-- GUI
-- animation preview in GUI
-- package an executable 
-- automatically build exe for download on github?
+[x] input two pngs, output a gif of switching between them
+[ ] additional transforms
+  [ ] follow path
+  [ ] resize
+  [ ] rotation
+[ ] GUI
+  [ ] Animation project creation
+  [ ] Project rendering
+  [ ] animation preview
+[ ] package an executable 
+[ ] automatically build exe for download on github?

@@ -21,7 +21,6 @@ from easygifmaker.core import (
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Create an animated GIF from PNGs")
-    parser.add_argument("--output", help="Output GIF name")
     
     subparsers = parser.add_subparsers(dest="command", required=True)
     
@@ -43,6 +42,7 @@ def main() -> None:
     render_parser = subparsers.add_parser("render", help="Render a project file")
     render_parser.add_argument("project", type=Path)
     render_parser.add_argument("--frames", type=Path)
+    render_parser.add_argument("--output", help="Output GIF name")
    
     args = parser.parse_args()
    

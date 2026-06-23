@@ -15,12 +15,7 @@ DEFAULT_FRAME_DURATION = 200
 def load_frame(path: Path) -> Image.Image:
     """Load a single PNG and convert to RGBA"""
     
-    """
-    Should I close files after loading, or keep images open until export? 
-    Do I want to call load() or copy() if you instead of open()?
-    """
-    
-    frame = Image.open(path)
+    frame = Image.open(path).copy()
     if frame.mode != "RGBA":
         frame = frame.convert("RGBA")
          
@@ -56,14 +51,14 @@ def build_animation(loaded_project: LoadedProject) -> list[(Image.Image, int)]:
     
     # Load images
     raw_frames = []
-    frame_dimensions = (None, None)
+    frame_dimensions = None
     for frame in loaded_project.frames:
         raw_frame = load_frame(frame)
         
         # Validate all frames have the same size 
-        if frame_dimensions == (None, None):
-            frame_dimensions = (raw_frame.height, raw_frame.width)
-        elif (raw_frame.height, raw_frame.width) != frame_dimensions:
+        if frame_dimensions is None:
+            frame_dimensions = raw_frame.size()
+        elif raw_frame.size() != frame_dimensions:
             raise AnimationError("Frame dimensions do not match")
         raw_frames.append(raw_frame)
           
@@ -71,9 +66,9 @@ def build_animation(loaded_project: LoadedProject) -> list[(Image.Image, int)]:
     # Load and validate background if needed
     background_frame = None
     if loaded_project.background:
-        background_frame = load_frame(frame)
+        background_frame = load_frame(loaded_project.background)
         
-        if (background_frame.height, background_frame.width) != frame_dimensions:
+        if background_frame.size() != frame_dimensions:
             raise AnimationError(
                 "Background frame dimensions do not match rest of frames"
                 )
