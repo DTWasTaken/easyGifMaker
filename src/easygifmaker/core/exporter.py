@@ -7,29 +7,25 @@
 from pathlib import Path
 from PIL import Image
 
-
 def save_gif(
-    frames: list[Image.Image],
-    output_path: str | Path,
-    pattern: list[str],
+    animation: list[(Image.Image, int)],
+    output_file_path: Path,
     loop: int = 0,
     ) -> None:
     
     """Save a list of PIL images as an animated GIF."""
-    if not frames:
-        raise ValueError("No frames to export")
-   
-    if len(pattern) > len(frames):
-        frames = [frames[i % len(frames)] for i in range(len(pattern))]
-        
+
+    frames = []
     durations = []
-        
-    for i in range(len(frames)):
-        durations.append(int(pattern[i % len(pattern)]))
+    
+    for item in animation:
+        frame, duration = item
+        frames.append(frame)
+        durations.append(duration)
        
     first, *rest = frames
     first.save(
-        output_path,
+        output_file_path,
         save_all=True,
         append_images=rest,
         duration=durations,

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "sources": {
+        "frames": "./frames"
+    },
+    "animation": {
+        "mode": "timing",
+        "pattern": [1000,300,300,1500]
+    },
+    "output": {
+        "filename": "out.gif",
+        "loop": 0
+    }
+}
