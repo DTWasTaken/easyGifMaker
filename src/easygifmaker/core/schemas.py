@@ -21,9 +21,13 @@ class TimingAnimation(BaseModel):
     
 class RotateAnimation(BaseModel):
     mode: Literal["rotate"] = "rotate"
-    frames: int
-    rate: float
+    degrees_per_frame: float
+    total_degrees: float = 360.0
+    duration_ms: int = 200
+    boomerang: bool = False
     
+Animation = TimingAnimation | RotateAnimation
+
 class ProjectSources(BaseModel):
     frames: Path
     background: Path | None = None
@@ -35,5 +39,5 @@ class ProjectOutput(BaseModel):
 class Project(BaseModel):
     version: int = 1
     sources: ProjectSources
-    animation: TimingAnimation | RotateAnimation
+    animation: Animation
     output: ProjectOutput

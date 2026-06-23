@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 
 def save_gif(
-    animation: list[(Image.Image, int)],
+    animation: list[tuple[Image.Image, int]],
     output_file_path: Path,
     loop: int = 0,
     ) -> None:

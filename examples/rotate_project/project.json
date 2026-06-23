@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "sources": {
+        "frames": "./frame.png"
+    },
+    "animation": {
+        "mode": "rotate",
+        "degrees_per_frame": -46,
+        "total_degrees": 360,
+        "duration_ms": 500,
+        "boomerang": false
+    },
+    "output": {
+        "filename": "out.gif",
+        "loop": 0
+    }
+}
