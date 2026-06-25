@@ -29,7 +29,9 @@ def scan_frames_dir(frames_dir: Path) -> list[Path]:
         if entry.name.startswith("."):
             continue
         if entry.is_dir():
-            raise ProjectLoadError(f"unexpected directory in frames folder: {entry}")
+            raise ProjectLoadError(
+                f"unexpected directory in frames folder: {entry}"
+            )
         if entry.suffix.lower() != ".png":
             raise ProjectLoadError(f"unexpected file in frames folder: {entry}")
         frames.append(entry)

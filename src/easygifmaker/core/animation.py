@@ -41,7 +41,9 @@ def timing_animation(
         
     # Cycle frames and durations to max(len(frames), len(pattern))
     for i in range(num_output_frames):
-        output.append((raw_frames[i % len(raw_frames)], pattern[i % len(pattern)]))
+        output.append(
+            (raw_frames[i % len(raw_frames)], pattern[i % len(pattern)])
+        )
     
     return output
 
@@ -54,7 +56,9 @@ def rotate_animation(
     if animation.degrees_per_frame == 0:
         raise AnimationError("degrees per frame must not be 0")   
     
-    frame_count = int(round(animation.total_degrees / abs(animation.degrees_per_frame)))
+    frame_count = int(
+        round(animation.total_degrees / abs(animation.degrees_per_frame))
+    )
     
     if (animation.total_degrees < 360
         or (animation.total_degrees == 360
@@ -90,7 +94,10 @@ def rotate_animation(
     return output
    
 
-def build_animation(loaded_project: LoadedProject) -> list[tuple[Image.Image, int]]:
+def build_animation(
+    loaded_project: LoadedProject
+) -> list[tuple[Image.Image, int]]:
+    
     # Error if no frames found
     if len(loaded_project.frames) == 0:
         raise AnimationError(
