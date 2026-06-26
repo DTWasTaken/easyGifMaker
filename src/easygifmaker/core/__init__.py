@@ -6,11 +6,11 @@
 
 from .exporter import save_gif
 from .project import parse_project, load_project
-from .animation import build_animation
+from .builder import animation_pipeline
 
 __all__ = [
     "save_gif",
     "parse_project",
     "load_project",
-    "build_animation",
+    "animation_pipeline",
     ]

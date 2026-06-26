@@ -15,7 +15,7 @@ from easygifmaker.core import (
     save_gif,
     parse_project, 
     load_project,
-    build_animation
+    animation_pipeline,
     )
 
 
@@ -69,7 +69,7 @@ def main() -> None:
             loaded = load_project(project, project_path.parent)
             
             # Build the animation
-            animation = build_animation(loaded)
+            animation = animation_pipeline(loaded)
             
             # Create the gif
             loop = loaded.project.output.loop

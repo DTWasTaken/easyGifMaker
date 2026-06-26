@@ -1,13 +1,15 @@
 {
     "version": 2,
     "sources": {
-        "frames": "frame.png"
+        "frames": "./frames"
     },
-    "source_timing": {},
+    "source_timing": {
+        "pattern": [500,400]
+    },
     "motions": [
         {
             "motion_type": "rotate",
-            "degrees_per_frame": 15,
+            "degrees_per_frame": 10,
             "total_degrees": 360
         }
     ],

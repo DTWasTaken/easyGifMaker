@@ -1,10 +1,9 @@
 {
-    "version": 1,
+    "version": 2,
     "sources": {
         "frames": "./frames"
     },
-    "animation": {
-        "mode": "timing",
+    "source_timing": {
         "pattern": [1000,300,300,1500]
     },
     "output": {
