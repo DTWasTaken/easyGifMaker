@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 [ ] additional transforms
   [ ] follow path
   [ ] resize
-  [ ] rotation
+  [x] rotation
 [ ] GUI
   [ ] Animation project creation
   [ ] Project rendering
